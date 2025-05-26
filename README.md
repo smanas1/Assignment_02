@@ -60,3 +60,33 @@ FROM orders
 GROUP BY customer_id;
 ```
 
+
+
+
+# 5. PostgreSQL-এ LIMIT এবং OFFSET Clauses ব্যবহারের উদ্দেশ্য
+
+PostgreSQL-এ LIMIT এবং OFFSET দুটি অনেক গুরুত্বপূর্ণ কারণ এই দুটির মধ্যমে আমরা কতগুলো সারি এবং কোন সারি থেকে দেখতে চাই সেগুলো বলেদেয়া যায়।
+
+`Limit` ক্লজ ব্যবহার করা হয় SELECT স্টেটমেন্টের ফলাফলকে একটি নির্দিষ্ট সংখ্যক সারিতে সীমাবদ্ধ করার জন্য। আপনি ডেটাবেস থেকে যতগুলো সারি ফেরত পেতে চাই, `LIMIT` ক্লজের মাধ্যমে সেটি উল্লেখ করে দিতে পারি।
+
+* **সিনট্যাক্স:**
+    ```
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition 
+    ORDER BY column_name 
+    LIMIT number_of_rows;
+    ```
+
+`OFFSET` ক্লজ ব্যবহার করা হয় ফলাফলের সারির তালিকা থেকে কতগুলো সারি বাদ দিয়ে গণনা শুরু করতে চাই, তা নির্দিষ্ট করার জন্য। এটি মূলত পেজিনেশন (pagination) করার জন্য দরকারি - অর্থাৎ, ডেটা কয়েকটি পৃষ্ঠায় ভাগ করে দেখানোর জন্য।
+
+*   **সিনট্যাক্স:**
+    ```sql
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition  
+    ORDER BY column_name 
+    OFFSET number_of_rows_to_skip;
+    LIMIT number_of_rows;
+    ```
+
