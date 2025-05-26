@@ -45,3 +45,18 @@ WHERE condition;
 ```
 
 
+# 4. GROUP BY Clause এবং Aggregation Operations এর ভূমিকা
+
+`GROUP BY` ব্যবহার করা হয় যখন একটি বা একাধিক কলামের ভিত্তিতে ডেটাকে গ্রুপ করতে হয় এবং প্রতিটি গ্রুপের জন্য অ্যাগ্রিগেশন ফাংশন প্রয়োগ করতে হয়। তখন এটিকে আমরা ব্যবহা করে থাকি।
+
+
+
+
+## যেমন
+
+```
+SELECT customer_id, SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY customer_id;
+```
+
